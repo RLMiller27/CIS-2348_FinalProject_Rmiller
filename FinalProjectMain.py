@@ -25,20 +25,7 @@ class Inventory: #This class takes user input of Manufactures and Items, finds t
         self.itemType = itemType
 
     def queryUser(self): #add check price 
-        #self.manfac = input("Enter a manufacture: ")
-        #self.itemType = input("Enter an item: ")
-
-        '''
-
-        for key,value in Inventory.itemInventory.items():
-            if self.manfac in value and self.itemType in value:
-                print(f"Here is your stuff {self.itemKey}")
-                return key
-                break
         
-        else:
-            print("That combo does not exit")
-        '''
         for key,value in Inventory.filterInventory.items():
             if self.manfac in value and self.itemType in value:
                 #print(f"Here is your stuff {key}")
@@ -57,33 +44,6 @@ class Inventory: #This class takes user input of Manufactures and Items, finds t
              if status_value != 'Damaged' and (not date_value or (date_value and datetime.strptime(date_value, '%m-%d-%y') >= datetime.strptime('12-20-20', '%m-%d-%y'))):
                  Inventory.filterInventory[key] = values
 
-        
-
-        
-
-    '''
-    def considerItem(self):
-        for key,value in Inventory.filterInventory.items():
-            #self.itemType in Inventory.filterInventory.items():
-            if Inventory.filterInventory.get(key) != Inventory.queryUser:
-                print(f"You many also like: {key},{value[0]},{value[1]},{value[2]}")
-            else:
-                print("This is not working")
-     '''
-
-    def printing():
-        '''
-        for key,value in Inventory.filterInventory.items():
-            if key == Inventory.queryUser:
-              print(f"Your item is: {key},{value[0]},{value[1]},{value[2]}")
-            else:
-                print("something is wrong")
-                break
-        '''
-    
-        
-
-    
 #InventoryStuff = Inventory()
 #InventoryStuff.queryUser()
 #Inventory.queryUser()
@@ -102,26 +62,20 @@ def main():
     itemType = input("Enter an item: ")
 
     inventoryStuff = Inventory(manfac,itemType)
-    #inventoryStuff.queryUser()
+    
    
 
     for key,value in Inventory.filterInventory.items():
             if key == inventoryStuff.queryUser():
               print(f"Your item is: {key},{value[0]},{value[1]},{value[2]}")
               thisKey = key
-    #inventoryStuff.considerItem()
+    
     
     for key,value in Inventory.filterInventory.items():
         if itemType in Inventory.filterInventory.get(key) and key != thisKey: 
             print(f"You many also like: {key},{value[0]},{value[1]},{value[2]}")
            
-    #Inventory.considerItem()         
-            
-
-
-    #Inventory.printing()
-    #print(inventoryStuff.queryUser())
+    
 
 if __name__ == "__main__":
     main()
-#stuff = Inventory
